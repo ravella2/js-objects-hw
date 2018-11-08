@@ -4,6 +4,37 @@
 	Each of these animal objects should have a name, a noise that they make,
 	and a makeNoise property that prints out their noise.
 */
+var dog = {
+	name: "indy",
+	noise: "bark",
+	makeNoise: function() {
+		console.log(this.noise);
+	}
+};
+
+var cat = {
+	name: "socks",
+	noise: "meow",
+	makeNoise: function() {
+		console.log(this.noise);
+	}
+};
+
+var bird = {
+	name: "birdy",
+	noise: "tweet",
+	makeNoise: function() {
+		console.log(this.noise);
+	}
+};
+
+var mouse = {
+	name: "mickey",
+	noise: "squeak",
+	makeNoise: function() {
+		console.log(this.noise);
+	}
+};
 
 /*
 	Part 2: Let's use an array to hold all of these animals.
@@ -13,6 +44,11 @@
 
 	Hint: Use the makeNoise() function for each animal in the array
 */
+var animals = [dog, cat, bird, mouse];
+
+for (var i = 0; i < animals.length; i++) {
+	animals[i].makeNoise();
+}
 
 /*
 	Part 3: Let's see how hungry these animals get by adding a "hunger" property to them.
@@ -24,6 +60,10 @@
 	myObject.newPropertyName = newValue; // or...
 	myObject['newPropertyName'] = newValue;
 */
+
+for (var i = 0; i < animals.length; i++) {
+	animals[i].hunger = 10;
+}
 
 /*
 	Part 4: These animals should be able to walk. Let's add a new "walk" property to them.
@@ -43,6 +83,13 @@
 
 	Hint: You will need the "this" keyword
 */
+
+for (var i = 0; i < animals.length; i++) {
+	animals[i].walk = function() {
+		console.log(this.name + " took a walk");
+		this.hunger--;
+	}
+}
 
 /*
 	Part 5: Now these animals can walk and talk by themselves, but they're quite lonely.
@@ -66,6 +113,11 @@
 	// => "chirp quack"
 */
 
+for (var i = 0; i < animals.length; i++) {
+	animals[i].makeFriend = function(newAnimal) {
+		this.friend = newAnimal;
+	}
+}
 
 /* BONUS
 This bonus will be a challenge! To complete this step, you'll need to do some Googling to look up things that have not yet been covered.
@@ -101,4 +153,4 @@ Hint #2: You'll need to use the this keyword to access the name of the current a
 Hint #3: Still stuck? The code to update the image source should look like this:
 	document.querySelector('img').setAttribute('src', 'images/' + this.name + '.jpg');
 */
-	
+
